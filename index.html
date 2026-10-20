@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0061)file:///D:/SALSYA%20OKTAVIANI%20TRI%20ZOOQ%20XI/UNDANGAN.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Undangan Pernikahan | Alexander & Isabella</title>
+<title>Undangan Pernikahan | Salsya &amp; Rizki</title>
 <style>
 * {
   margin: 0;
@@ -59,14 +59,8 @@ img {
   animation: muncul 1.2s ease;
 }
 @keyframes muncul {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .label {
   font-size: 12px;
@@ -171,7 +165,6 @@ button:hover, .tombol:hover {
   font-size: 35px;
   margin-bottom: 12px;
 }
-/* Galeri Foto */
 .galeri {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -194,17 +187,23 @@ footer {
   background: #f4d5e1;
 }
 #pesan {
-
   margin-top: 15px;
   font-family: Arial, sans-serif;
   font-size: 14px;
   color: #555;
 }
+input {
+  transition: border-color 0.3s ease;
+}
+input:focus {
+  border-color: var(--pink) !important;
+}
+/* Pemutar Musik */
 #musik {
   position: fixed;
   right: 16px;
   bottom: 16px;
-  z-index: 5;
+  z-index: 100;
   width: 48px;
   height: 48px;
   padding: 0;
@@ -214,41 +213,59 @@ footer {
   border: none;
   box-shadow: 0 4px 15px rgba(143, 66, 96, 0.18);
   cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-input {
-  transition: border-color 0.3s ease;
+#musik.berputar {
+  animation: putar 2s linear infinite;
 }
-input:focus {
-  border-color: var(--pink) !important;
+@keyframes putar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.pemutar-sembunyi {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 @media (max-width: 480px) {
-  .cover-card {
-    padding: 40px 18px;
-  }
-  .bagian {
-    padding: 50px 18px;
-  }
-  .galeri {
-    grid-template-columns: 1fr;
-  }
+  .cover-card { padding: 40px 18px; }
+  .bagian { padding: 50px 18px; }
+  .galeri { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
+
+<!-- Pemutar Musik Latar -->
+<div class="pemutar-sembunyi">
+  <audio id="lagu" loop="">
+    <!-- Ganti dengan link/file lagu Anda jika punya -->
+    <source src="musik.mp3" type="audio/mpeg">
+  
+  <!-- Cadangan: Pakai YouTube Official -->
+  <iframe id="ytMusik" width="0" height="0" src="./Undangan Pernikahan_files/hB57PKyhXBM.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+</audio></div>
+<button id="musik" class="berputar" onclick="putarJeda()">
+  🎵
+</button>
+
 <!-- HALAMAN PEMBUKA -->
-<section class="cover" id="cover">
+<section class="cover" id="cover" style="display: none;">
   <div class="cover-card">
     <p class="label">Undangan Pernikahan</p>
     <div style="font-size:32px;margin-top:20px">🌷</div>
     <h1 class="nama">
-      Alexander<br>
-      <span class="dan">&</span><br>
-      Isabella
+      Salsya<br>
+      <span class="dan">&amp;</span><br>
+      Rizki
     </h1>
     <div class="garis"></div>
     <p>Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di hari istimewa kami.</p>
     <p>Kepada Yth.<br><strong>Bapak/Ibu/Saudara/i</strong></p>
-    <p class="tanggal">14 Februari 2027</p>
+    <p class="tanggal">27 Oktober 2026</p>
     <button onclick="bukaUndangan()">
       💌 Buka Undangan
     </button>
@@ -256,20 +273,17 @@ input:focus {
 </section>
 
 <!-- ISI UNDANGAN -->
-<main id="isi-undangan">
+<main id="isi-undangan" style="display: block;">
   <section class="hero">
     <p class="label">Hari Bahagia Kami</p>
-    <h1>Alexander<br>
-      <span class="dan">&</span><br>
-      Isabella
+    <h1>Salsya<br>
+      <span class="dan">&amp;</span><br>
+      Rizki
     </h1>
-    <p>
-      Dua hati, satu cinta, dan satu perjalanan
-      baru yang akan kami tempuh bersama.
-    </p>
+    <p>Dua hati, satu cinta, dan satu perjalanan baru yang akan kami tempuh bersama.</p>
     <div class="garis"></div>
-    <p class="tanggal">Minggu, 14 Februari 2027</p>
-    <button onclick="document.getElementById('acara').scrollIntoView()">
+    <p class="tanggal">Selasa, 27 Oktober 2026</p>
+    <button onclick="document.getElementById(&#39;acara&#39;).scrollIntoView()">
       Lihat Detail Acara ↓
     </button>
   </section>
@@ -279,15 +293,8 @@ input:focus {
     <div class="konten">
       <div class="icon-bunga">🌸</div>
       <h2 class="judul">Assalamu'alaikum</h2>
-      <p>
-        Dengan memohon rahmat dan ridho Tuhan Yang Maha Esa,
-        kami bermaksud menyelenggarakan pernikahan kami.
-      </p>
-      <p>
-        Merupakan suatu kebahagiaan bagi kami apabila
-        Bapak/Ibu/Saudara/i berkenan hadir untuk
-        memberikan doa restu di hari bahagia kami.
-      </p>
+      <p>Dengan memohon rahmat dan ridho Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan pernikahan kami.</p>
+      <p>Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu di hari bahagia kami.</p>
     </div>
   </section>
 
@@ -299,18 +306,10 @@ input:focus {
       <p>Beberapa kenangan indah perjalanan cinta kami</p>
       <div class="garis"></div>
       <div class="galeri">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" 
-             alt="Foto Pernikahan 1" class="galeri-foto">
-        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80" 
-             alt="Foto Pernikahan 2" class="galeri-foto">
-        <img src="https://images.unsplash.com/photo-1591604466107-ec97c94d6294?auto=format&fit=crop&w=600&q=80" 
-             alt="Foto Pernikahan 3" class="galeri-foto">
-        <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=600&q=80" 
-             alt="Foto Pernikahan 4" class="galeri-foto">
-        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" 
-             alt="Foto Pernikahan 5" class="galeri-foto">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" 
-             alt="Foto Pernikahan 6" class="galeri-foto">
+        <img src="./Undangan Pernikahan_files/IMG-20261020-WA0016.jpg" "="" alt="Foto Pernikahan" class="galeri-foto">
+        <img src="./Undangan Pernikahan_files/IMG-20261020-WA0025.jpg" "="" alt="Foto Pernikahan" class="galeri-foto">
+        <img src="./Undangan Pernikahan_files/IMG-20261020-WA0020.jpg" =""""="" alt="Foto Pernikahan" class="galeri-foto">
+        <img src="./Undangan Pernikahan_files/IMG-20261020-WA0016.jpg" ""="" alt="Foto Pernikahan" class="galeri-foto">
       </div>
     </div>
   </section>
@@ -321,16 +320,16 @@ input:focus {
       <h2 class="judul">Kedua Mempelai 💍</h2>
       <div class="kotak">
         <div class="icon-bunga">🤵🏻</div>
-        <h2 class="judul">Alexander</h2>
+        <h2 class="judul">Rizki</h2>
         <p>Putra dari keluarga tercinta</p>
-        <p><strong>Bapak William & Ibu Olivia</strong></p>
+        <p><strong>Bapak Herdi &amp; Ibu Aminah</strong></p>
       </div>
-      <h2 style="color:#d8799c;font-size:30px">&</h2>
+      <h2 style="color:#d8799c;font-size:30px">&amp;</h2>
       <div class="kotak">
         <div class="icon-bunga">👰🏻‍♀️</div>
-        <h2 class="judul">Isabella</h2>
+        <h2 class="judul">Salsya</h2>
         <p>Putri dari keluarga tercinta</p>
-        <p><strong>Bapak James & Ibu Sophia</strong></p>
+        <p><strong>Bapak Anton &amp; Ibu Teti</strong></p>
       </div>
     </div>
   </section>
@@ -339,33 +338,23 @@ input:focus {
   <section class="bagian" id="acara">
     <div class="konten">
       <h2 class="judul">Detail Acara 📅</h2>
-      <p>
-        Dengan penuh rasa syukur, kami mengundang
-        Anda untuk menyaksikan dan merayakan
-        hari bahagia kami.
-      </p>
+      <p>Dengan penuh rasa syukur, kami mengundang Anda untuk menyaksikan dan merayakan hari bahagia kami.</p>
       <div class="kotak">
         <div class="icon-bunga">💍</div>
         <h2 class="judul">Akad Nikah</h2>
-        <p><strong>Selasa,27 Oktober 2027</strong></p>
+        <p><strong>Selasa, 27 Oktober 2026</strong></p>
         <p>Pukul 09.00 WIB – selesai</p>
-        <p>Tempat: Ruang Utama Gedung Golden Vows Hall</p>
         <div class="garis"></div>
         <h2 class="judul">Resepsi Pernikahan</h2>
-        <p><strong>Minggu, 14 Februari 2027</strong></p>
+        <p><strong>Selasa, 27 Oktober 2026</strong></p>
         <p>Pukul 11.00 – 14.00 WIB</p>
-        <p>Tempat: Aula Utama & Halaman</p>
       </div>
       <div class="kotak">
         <div class="icon-bunga">📍</div>
         <h2 class="judul">Lokasi Acara</h2>
-        <p><strong>Gedung Serbaguna</strong></p>
+        <p><strong>Graha Kasih</strong></p>
         <p>Jl. Contoh No. 123, Bandung, Jawa Barat</p>
-        <a
-          class="tombol"
-          href="https://www.google.com/maps/search/?api=1&query=gedung+pernikahan+Bandung"
-          target="_blank"
-          rel="noopener noreferrer">
+        <a class="tombol" href="https://www.google.com/maps/search/?api=1&amp;query=gedung+pernikahan+Bandung" target="_blank" rel="noopener noreferrer">
           📍 Buka Google Maps
         </a>
       </div>
@@ -377,17 +366,10 @@ input:focus {
     <div class="konten">
       <div class="icon-bunga">💗</div>
       <h2 class="judul">Cerita Cinta Kami ✨</h2>
-      <p>
-        Berawal dari sebuah pertemuan sederhana,
-        tumbuhlah rasa yang semakin hari semakin kuat.
-        Kini, kami memilih untuk berjalan bersama,
-        saling menggenggam tangan, dan membangun
-        masa depan dalam ikatan suci pernikahan.
-      </p>
-      <p>
-        Semoga cinta kami selalu tumbuh,
-        seperti bunga yang mekar indah di setiap musimnya.
-        Terima kasih telah menjadi bagian dari kisah kami. 💐
+      <p>Berawal dari sebuah pertemuan sederhana, tumbuhlah rasa yang semakin hari semakin kuat. Kini, kami memilih untuk berjalan bersama, saling menggenggam tangan, dan membangun masa depan dalam ikatan suci pernikahan.</p>
+      <p>Semoga cinta kami selalu tumbuh, seperti bunga yang mekar indah di setiap musimnya. Terima kasih telah menjadi bagian dari kisah kami. 💐</p>
+      <p style="margin-top:20px;font-style:italic;color:#a84e72">
+        🎵 "Aku berjanji akan selalu menjagamu, takkan kubiarkan siapa pun menyakitimu" — Fabio Asher 🎵
       </p>
     </div>
   </section>
@@ -397,25 +379,13 @@ input:focus {
     <div class="konten">
       <div class="icon-bunga">💌</div>
       <h2 class="judul">Konfirmasi Kehadiran</h2>
-      <p>
-        Kehadiran dan doa restu Anda merupakan
-        kebahagiaan yang sangat berarti bagi kami.
-      </p>
+      <p>Kehadiran dan doa restu Anda merupakan kebahagiaan yang sangat berarti bagi kami.</p>
       <div class="kotak">
         <p>Nama Anda:</p>
-        <input
-          id="namaTamu"
-          type="text"
-          placeholder="Masukkan nama lengkap Anda"
-          style="width:100%;padding:13px;border:1px solid #e5b5c8;border-radius:12px;font-size:15px;outline:none"
-        >
+        <input id="namaTamu" type="text" placeholder="Masukkan nama lengkap Anda" style="width:100%;padding:13px;border:1px solid #e5b5c8;border-radius:12px;font-size:15px;outline:none">
         <p>Apakah Anda akan hadir?</p>
-        <button onclick="kirimRSVP('Hadir')">
-          💗 Ya, Saya Hadir
-        </button>
-        <button onclick="kirimRSVP('Tidak dapat hadir')">
-          Mohon Maaf, Tidak Hadir
-        </button>
+        <button onclick="kirimRSVP(&#39;Hadir&#39;)">💗 Ya, Saya Hadir</button>
+        <button onclick="kirimRSVP(&#39;Tidak dapat hadir&#39;)">Mohon Maaf, Tidak Hadir</button>
         <p id="pesan"></p>
       </div>
     </div>
@@ -425,19 +395,39 @@ input:focus {
   <footer>
     <p>Merupakan kebahagiaan bagi kami atas doa dan kehadiran Anda.</p>
     <div class="icon-bunga">🌷</div>
-    <h2 class="judul">Alexander & Isabella</h2>
+    <h2 class="judul">Salsya &amp; Rizki</h2>
     <p>Dengan cinta, untuk selamanya. ♡</p>
   </footer>
 </main>
 
 <script>
+const lagu = document.getElementById('lagu');
+const tombolMusik = document.getElementById('musik');
+let sedangBunyi = true;
+
 function bukaUndangan() {
   document.getElementById("cover").style.display = "none";
   document.getElementById("isi-undangan").style.display = "block";
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  // Mulai putar musik saat undangan dibuka
+  if (lagu.src && lagu.src !== "" && lagu.src !== "musik.mp3") {
+    lagu.play().catch(() => {});
+  }
+}
+
+function putarJeda() {
+  sedangBunyi = !sedangBunyi;
+  if (sedangBunyi) {
+    tombolMusik.classList.add('berputar');
+    tombolMusik.innerText = '🎵';
+    if (lagu.src && lagu.src !== "" && lagu.src !== "musik.mp3") {
+      lagu.play();
+    }
+  } else {
+    tombolMusik.classList.remove('berputar');
+    tombolMusik.innerText = '🔇';
+    lagu.pause();
+  }
 }
 
 function kirimRSVP(status) {
@@ -447,22 +437,12 @@ function kirimRSVP(status) {
     document.getElementById("namaTamu").focus();
     return;
   }
-  // ⚠️ PENTING: Ganti nomor di bawah dengan nomor WhatsApp Anda
-  // Format: 6281234567890 (tanpa tanda + atau spasi)
-  const nomorWhatsApp = ""; 
+  const nomorWhatsApp = "6285693157931"; 
   const pesan =
     "Halo, saya " + nama +
-    ". Konfirmasi undangan pernikahan Alexander & Isabella: " +
+    ". Konfirmasi undangan pernikahan Salsya & Rizki: " +
     status + ". Terima kasih.";
   const areaPesan = document.getElementById("pesan");
-  
-  if (nomorWhatsApp.trim() === "") {
-    areaPesan.innerText =
-      "✅ Tercatat: " + pesan +
-      "\n\n💡 Isi nomor WhatsApp penyelenggara pada kode agar pesan dapat dikirim langsung.";
-    areaPesan.style.whiteSpace = "pre-line";
-    return;
-  }
   
   const url =
     "https://wa.me/" + nomorWhatsApp +
@@ -471,7 +451,6 @@ function kirimRSVP(status) {
   areaPesan.innerText = "✅ Terima kasih! WhatsApp terbuka untuk mengirim pesan.";
 }
 </script>
-</body>
-</html>
 
 
+</body></html>
